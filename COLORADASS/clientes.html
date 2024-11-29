@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yucatán: Descubre sin Límites</title>
+    <!-- Fuente desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #fbe2e2; /* Fondo rosita suave */
+            color: #333;
+        }
+        .header {
+            background-color: #f3a2a2; /* Rosita de fondo para el header */
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-family: 'Lobster', cursive; /* Tipografía bonita */
+            color: #FFD700;
+        }
+        nav {
+            display: flex;
+            gap: 15px; /* Espacio uniforme entre los enlaces */
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav a {
+            background-color: #f7b7b7; /* Color rosita para los botones */
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #e69999; /* Hover más oscuro */
+        }
+        .content {
+            display: none;
+            padding: 20px;
+            text-align: center;
+        }
+        .content.active {
+            display: block;
+        }
+        .content h2 {
+            color: #e6a1a1; /* Color rosita más suave para los subtítulos */
+            font-family: 'Lobster', cursive;
+            font-size: 2em;
+        }
+        button {
+            background-color: #f7b7b7; /* Fondo rosita para los botones */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e69999; /* Hover más oscuro para el botón */
+        }
+    </style>
+    <script>
+        function showPlace(placeId) {
+            const sections = document.querySelectorAll('.content');
+            sections.forEach((section) => section.classList.remove('active'));
+            document.getElementById(placeId).classList.add('active');
+        }
+        window.onload = function() {
+            showPlace('inicio');
+        };
+    </script>
+</head>
+<body>
+    <header class="header">
+        <h1>Bienvenido a coloraturs</h1>
+        <nav>
+            <a href="#" onclick="showPlace('inicio')">Inicio</a>
+            <a href="#" onclick="showPlace('comentarios')">Comentarios</a>
+            <a href="#" onclick="showPlace('lugares')">Lugares</a>
+            <a href="#" onclick="showPlace('contacto')">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Sección de Inicio -->
+    <section id="inicio" class="content active">
+        <h2>Bienvenidos al Turismo en las Coloradas</h2>
+        <p>Descubre la belleza y la historia de las Coloradas,Yucatán.</p>
+    </section>
+
+    <!-- Sección de Lugares -->
+    <section id="lugares" class="content">
+        <h2>Lugares Disponibles</h2>
+        <form action="lugares.php" method="post">
+            <button type="submit">Entrar</button>
+        </form>
+    </section>
+
+    <!-- Sección de Comentarios -->
+    <section id="comentarios" class="content">
+        <h2>Comentarios</h2>
+        <form action="comentario-cli.php" method="post">
+            <button type="submit">Entrar</button>
+        </form>
+    </section>
+</body>
+</html>
